@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if(window.localStorage.getItem("objetivo")!=null){
+                window.location.replace("principal.html");
+            }
+            else if(window.localStorage.getItem("nombre")!=null){
+    
+                window.location.replace("pruebas.html")
+            }
+            
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/bienvenida.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<body >
+    <div data-role="page" id="inicio" data-theme="b" > 
+        <div data-role="header" class="header" data-theme="b">
+    
+        <img src="img/logo.png" class="imagen">
+    </div>
+    <div data-role="main" class="ui-content" data-theme="b">
+        <center><b> BIENVENIDO</b></center>
+        <p>
+            Hola, cuentanos más sobre tí, por favor contesta el siguiente formulario con tus datos
+            esto lo hacemos para tener una base para mejorar tus rutinas y alimentacion personalizada.
+        </p>
+        <div>
+            <a href="#popupLogin" data-rel="popup" data-position-to="window"
+             class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-b" data-transition="pop">
+             Ya tengo cuenta</a>
+        </div>
+        
+            <div data-role="fieldcontain" >
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" value="" data-theme="a" required />
+            </div>
+
+            <div data-role="fieldcontain">
+                <label for="contrasenia">Contraseña:</label>
+                <input type="password" name="contrasenia" id="contrasenia" data-theme="a" value="" required />
+            </div>
+
+
+            <div data-role="fieldcontain">
+                <label for="peso">Peso (KG) :</label>
+                <input type="range" name="peso" id="peso" value="40" min="0" max="160"  data-theme="a" data-popup-enabled="true">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="edad">Edad (Años) :</label>
+                <input type="range" name="edad" id="edad" value="10" min="0" max="100" data-theme="a" data-popup-enabled="true">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="altura">Estatura (CM) :</label>
+                <input type="range" name="altura" id="altura" value="100" min="100" max="220" data-theme="a" data-popup-enabled="true">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="experiencia">Conoces la calistenia:</label>
+                <select name="experiencia" id="experiencia" data-role="slider" data-mini="true">
+                    <option value="no">No</option>
+                    <option value="si" selected="">Si</option>
+                </select>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="sexo">Sexo:</label>
+                <select name="sexo" id="sexo" data-role="slider" data-mini="true">
+                    <option value="Hombre">M</option>
+                    <option value="Mujer" selected="">F</option>
+                </select>
+                <br><br>
+                <button type="button" data-theme="b" id="guardardatos" data-ajax="false" style="width: 100%;">Hecho</button>
+
+            </div>
+            <div id="overlay" data-role="popup" data-overlay-theme="a" class="ui-content">
+                <p>I have a <code>data-overlay-theme="a"</code> set on me</p>
+              </div>
+            
+            <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+                <form>
+                    <div style="padding:10px 20px;">
+                        <h3>Ingresa</h3>
+                        <label for="un" class="ui-hidden-accessible">Nombre:</label>
+                        <input type="text" name="nickname" id="nickname" value="" placeholder="Nombre" data-theme="a" required>
+                        <label for="pw" class="ui-hidden-accessible">Contraseña:</label>
+                        <input type="password" name="pass" id="pass" value="" placeholder="Contraseña" data-theme="a" required>
+                        <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check"
+                        id="entrarCuenta" >Entrar</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+    <div data-role="footer">
+        Version 1.0
+    </div>
+    </div>
+
+    <div data-role="page" id="error">
+        <div data-role="header" data-theme="b"><h1>Error</h1></div>
+           <div data-role="content" data-theme="a">
+        Nombre no valida, por favor te pedimos pongas uno diferente...
+            <a href="#inicio" data-role="button" data-theme="e" data-rel="back">Aceptar</a>
+        </div> 
+        <div data-role="footer">
+            Version 1.0
+        </div>
+    </div>
+
+    
+    <script type="text/javascript">
+   
+      $(document).ready(function() {
+       
+            setTimeout('ocultar()', 3000);
+        });   
+      
+
+        function ocultar() { 
+            var contenedor = document.getElementById('contenedor_carga');
+            contenedor.style.visibility = 'hidden';
+            contenedor.style.opacity = '0';
+
+        }
+    </script>
+    <script src="js/formulario.js"></script>
+</body>
+
+</html>

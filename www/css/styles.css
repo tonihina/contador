@@ -1,0 +1,143 @@
+.menuImagen{
+    width: 20%;
+    margin-left: 35%;
+    border-radius: 400px;
+    z-index: -1;
+    
+}
+
+#fotoAntes{
+    width: 100%;
+}
+
+.publicarImagen{
+    width: 10%;
+  
+}
+
+
+
+#fotoPublicar{
+    border-radius: 100%;
+    width: 20%;
+}
+
+#mostrarArticulos .ui-btn-text {
+    white-space:normal;
+  }
+
+h3{
+    text-align: center;
+}
+
+#noPaginacion{
+    visibility: hidden;
+}
+
+.imagenEjercicios{
+    width: 100%;
+    border-radius: 10%;
+    padding-bottom: 10px;
+}
+
+#muestaUsuarios img{
+    width: 10%;
+    border-radius: 30%;
+
+}
+#requerimientoCalorico{
+    text-align: center;
+    background-color: rgba(0, 160, 0, 0.3);
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.CuandroEnviar{
+    bottom:0.00; 
+    position: fixed !important; 
+    top: auto !important; 
+    width:92%;
+    
+}
+
+
+#muestradeMensajesPanel img{    
+    width: 10%;
+    border-radius: 30%;
+}
+#mns{
+    background-color: transparent;
+    width: 20%;
+    border-radius: 100%;
+    margin-left: 80%;
+    margin-bottom: 30px;
+    position: absolute;
+    color: white;
+    text-align: center;
+}
+#contenidoArticulo{
+    width: 100%;
+    height: 100%;
+    margin-right: 400px;
+    margin-bottom: 400px;
+}
+
+.remitente{
+    background-color: green;
+}
+.centrar{
+    margin-right: 400px;
+    width: 100%;
+    margin-bottom: 50%;
+
+}
+.centrarHistoria{
+    margin-right: 400px;
+    width: 90%;
+    margin-bottom: 80%;
+
+}
+.tablaMacros{
+    text-align: center;
+}
+.ui-bar-a{
+    text-align: center;
+    height:60px;
+}
+
+.macros{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    text-shadow: 2px 2px 4px black;
+}
+
+.carbo{
+    color: rgba(229, 31, 31);
+}
+.prote{
+    color: rgba(54, 162, 235, 0.6);
+}
+.grasa{
+    color: rgba(255, 206, 86, 0.6);
+}
+#demo-page :not(INPUT):not(TEXTAREA) {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+/* Content styling. */
+dl { font-family: "Times New Roman", Times, serif; padding: 1em; }
+dt { font-size: 2em; font-weight: bold; }
+dt span { font-size: .5em; color: #777; margin-left: .5em; }
+dd { font-size: 1.25em; margin: 1em 0 0; padding-bottom: 1em; border-bottom: 1px solid #eee; }
+.back-btn { float: right; margin: 0 2em 1em 0; }
+
+
+
+
+
+

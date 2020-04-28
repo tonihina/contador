@@ -1,0 +1,54 @@
+* {
+	background-color: black;
+	transform-origin: 0 0;
+}
+
+
+.imagen{
+	width: 20%;
+	float: right;
+}
+#pantalla{
+	background-color: black; 
+	height: 100%;
+	transition: all 1s ease;
+	z-index: 1000;
+	position: absolute;
+
+}
+
+.table{
+	
+	text-decoration: none;
+}
+
+.table th{
+	text-align: center;
+	color: white;
+	width: 50%;
+}
+
+#male{
+	width: 50%;
+}
+
+#female{
+	width: 50%;
+}
+
+#male:hover{
+	opacity: .4;
+}
+
+#female:hover{
+	opacity: .4;
+}
+
+#pantalla p{
+	color: white;
+	width: 80%;
+	text-align: justify;
+	margin: auto;
+	margin-top: 40px;	
+}
+

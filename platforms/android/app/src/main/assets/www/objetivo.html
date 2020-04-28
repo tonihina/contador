@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<title>Objetivo</title>
+	<link rel="stylesheet" type="text/css" href="css/carga.css">
+	<link rel="stylesheet" type="text/css" href="css/inicio.css">
+	<link rel="stylesheet" type="text/css" href="css/temporizador.css">
+	<link rel="stylesheet" type="text/css" href="css/objetivo.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+	
+</head>
+<body>
+	<div id="contenedor_carga">
+		<img src="img/logo.png" id="logo">
+		<img src="img/flexion.gif" id="ejercicio">
+		<div id="carga">
+			
+		</div>
+	</div>
+	<div class="header">
+	  <img src="img/logo.png">
+	  
+	</div>
+	
+	<div id="explicacion">
+		<h1 class="objetivo">¿Cuál es tu objetivo?</h1>	
+	<table class="table table-borderless">
+	  <thead>
+	    <tr>
+	      <th scope="col"></th>
+	      <th scope="col"></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>
+	      	 <a href="principal.html"> <img src="img/fuerza.jpg" class="imagen"c></a>
+
+	      </td>
+	      <td>
+	      	<a href="#"><img src="img/resistencia.jpg" class="imagen"></a>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>Fuerza</td>
+	      <td>Resistencia</td>
+	     
+	    </tr>
+	    <tr>
+	      <td>
+	      	<a href="#"><img src="img/peso.jpg" class="imagen"></a>
+	      	</td>
+	      		
+	      <td>
+	      	<a href=""><img src="img/hipertrofia.jpg" class="imagen">
+	      		</a>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>Perder peso</td>
+	      <td>Masa muscular</td>
+	    </tr>
+	   <tr>
+	      <td >
+	      	<a href="#"><img src="img/salud.jpg" class="imagen"></a></td>
+	      
+	    </tr>
+	    <tr>
+	      <td>Salud</td>
+ 
+	    </tr>
+	  </tbody>
+	</table>
+	</div>
+	
+	<script type="text/javascript">
+		window.onload=function(){
+			var contenedor = document.getElementById('contenedor_carga');
+
+			contenedor.style.visibility='hidden';
+			contenedor.style.opacity='0';
+		}
+	</script>
+	  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	  <script src="js/temporizador.js"></script>
+</body>
+</html>

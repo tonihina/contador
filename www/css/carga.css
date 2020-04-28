@@ -1,0 +1,205 @@
+*,*:after,*:before{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; 
+}
+
+.glyphicon-arrow-right{
+	float: right;
+	font-size: 40px;
+
+	color: white;
+}
+
+
+#res{
+	visibility: hidden; 
+}
+
+
+
+.rango{
+	color: white;
+	font-size: 20px;
+	margin-top: -20px;	
+	text-align: center;
+}	
+
+
+
+#textInput{
+	text-align: center;
+	
+}
+
+#caja{
+	text-align: center;
+	color: black;
+	background-color: black;
+}
+
+#contenedor_carga{
+	background-image: url(../img/fondoIndex.jpg);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	margin: auto;
+	transition: all 1s ease;
+	z-index: 10000;
+}
+
+#carga{
+	border: 15px solid #ccc;
+	border-top-color: #F4266A;
+	border-top-style: groove;
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+
+	animation: girar 1.5s linear infinite;  
+}
+
+#logoInicio{
+	
+	border-top-color: #F4266A;
+	border-top-style: groove;
+	width: 100%;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	animation: agrandar 1.5s alternate infinite ease-in;
+
+}
+
+#logo{
+	width: 200px;
+	position: absolute;
+	top: -50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: transparent;
+}
+
+#ejercicio{
+	width: 100px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#explicacion{
+	height: 100%;
+	width: 90%;
+	text-align: center;
+	margin-left: 5%;
+	background-color: ;
+	border-radius: 30px;
+	padding-bottom: 20px;
+}
+
+#titulo{
+	text-align: center;
+	color: white;
+	
+	font-size: 30px;
+	text-shadow: 2px 2px black;
+	border-radius: 20px;
+	width: 100%;
+	margin-top: 20px;
+
+}
+
+#nombreEjercicio{
+	text-align: center;
+	background-color: transparent;
+	color: white;
+	font-size: 20px;
+	text-shadow: 2px 2px black;
+	
+}
+
+#descripcion{
+	text-shadow: 2px 2px black;
+	text-align: justify;
+	margin-top: 5%;
+	width: 90%;
+	margin-left: 5%;
+	color: white;
+	font-size: 17px;
+	font-weight: normal;
+}
+
+#muestra{
+	width: 130px;
+	height: 120px;	
+	margin-top: 10px;
+ }
+
+
+
+#dicho{
+	width: 80%;
+	margin-left: 10%;
+}
+
+#ahora{
+	color: black;
+}
+
+#boton {
+	border-radius: 5px;
+	width: 80%;
+
+	height: 30px;
+	margin: 20px;
+	border: 1px solid #384049;
+  color: white;
+  cursor: pointer;
+  font-family: Calibri,Arial;
+  font-weight: 300;
+  outline: none;
+  text-shadow: 0px -1px 1px black;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+#boton{
+   background-image: linear-gradient(#3aad02,#2c6f05);
+}
+#boton:active{
+   background-image: linear-gradient(#2c6f05,#3aad02);
+   text-shadow:      0px 1px 1px black;
+}
+@keyframes girar{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+
+
+@keyframes agrandar {
+  0%   {transform: scale(.4);}
+  100% {transform: scale(1);}
+}
+

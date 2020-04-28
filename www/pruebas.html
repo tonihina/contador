@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/pruebas.css">
+    <link rel="stylesheet" href="css/temporizador.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+<body>
+    
+    <div data-role="page" id="pruebas" data-theme="b">
+        <div data-role="header" class="header">
+            Pruebas
+        </div>
+        <div data-role="main" class="ui-content" data-theme="b">
+            <p>
+                ¿No conoces tu estado físico actual?, no importa, hemos creado
+                un conjunto de pruebas de los ejercicios corporales básicos,
+                con los cuales trataremos de acomodarte tus rutinas de mejor
+                manera, cada ejercicio tendrá un tiempo de 30 segundos, en
+                los cuales harás la cantidad que puedas ¿Estás listo?, Vamos...
+            </p>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3>Flexiones</h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            Las flexiones de brazos son un ejercicio muy común en cualquier disciplina deportiva,
+                            normalmente se utiliza
+                            para mejorar la condición física y poner a tono los músculos del tren superior.
+                            <img src="img/flexion.gif" alt="">
+                        </li>
+                        <li id="flexionPrueba" data-theme="b">
+                            <a href="#flexiones" data-transition="slidedown">
+                                Comenzar prueba</a>
+                        </li>
+                        <li id="flexionAcabada">
+                            <div id="salidaFlexiones">
+                                <p class="terminada">
+                                    Prueba terminada
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3>Sentadillas</h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            Una sentadilla es un ejercicio físico que se lleva a cabo para desarrollar los músculos y
+                            fortalecer los tendones
+                            y los ligamentos de las piernas. También permite tonificar los glúteos y aporta beneficios a
+                            la cadera.
+                            <img src="img/sentadilla.gif" alt="">
+                        </li>
+                        <li id="sentadillaPrueba" data-theme="b">
+                            <a href="#sentadilla" data-transition="slidedown" data-ajax="false">Comenzar prueba</a>
+                        </li>
+                        <li id="sentadillaAcabada">
+                            <div id="salidaSentadillas">
+                                <p class="terminada">
+                                    Prueba terminada
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3>Abdominales</h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            los ejercicios abdominales son rutinas de actividades físicas que se realizan con el
+                            objetivo de tonificar los músculos
+                            de la zona. Antes de la tonificación, es necesario eliminar la grasa que recubre dichos
+                            músculos, a través del ejercicio aeróbico y de una alimentación saludable.
+                            <img src="img/abdominal.gif" alt="">
+                        </li>
+                        <li id="abdominalesPrueba">
+                            <a href="#abdominales" data-transition="slidedown" data-ajax="false">Comenzar prueba</a>
+                        </li>
+                        <li id="abdominalesAcabada">
+                            <div id="salidaAbdominales">
+                                <p class="terminada">
+                                    Prueba terminada
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3>Fondos</h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            El fondo es un ejercicio usado en el entrenamiento de la fuerza, desarrollan principalmente
+                            los tríceps, junto con músculos sinergísticos como los deltoides, los pectorales
+                            (esternales, claviculares y menores) y los músculos romboides de la espalda.
+                            <img src="img/fondo.gif" alt="">
+                        </li>
+                        <li id="fondosPrueba">
+                            <a href="#fondos" data-transition="slidedown" data-ajax="false">Comenzar prueba</a>
+                        </li>
+                        <li id="fondosAcabada">
+                            <div id="salidaFondos">
+                                <p class="terminada">
+                                    Prueba terminada
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                Nota: Si no quieres realizar los ejercicios, esta bien continua, tus rutinas se harán con base
+                a el promedio de los datos generales.
+            </p>
+            <a href="objetivo.html" data-role="button" data-icon="arrow-r" data-theme="b" data-ajax="false">
+                Continuar </a>
+        </div>
+        <div data-role="footer">
+            Version 1.0
+        </div>
+
+    </div>
+
+    <div data-role="page" id="flexiones" data-theme="a">
+        <div data-role="header" class="header">
+            Flexiones
+        </div>
+        <div data-role="main" class="ui-content">
+            Tienes 30 segundos para realizar las flexiones que puedas, no importa si descansas
+            el objetivo es saber la cantidad que haces y así clasificarte en nuestro sistema
+            para poder personalizar tus rutinas de mejor manera, ¿Estas listo para la prueba?,
+            vamos, al terminar el tiempo sonará una alarma, así que no te preocupes por eso...
+            <hr>
+            <div class="item" align="center">
+                <h2 onclick="comenzarF()">Comenzar</h2>
+                <svg width="160" height="160" id="relojF" onclick="comenzarF()">
+                    <g>
+                        <title>Layer 1</title>
+                        <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                            stroke="#6fdb6f" fill="none" />
+                    </g>
+                </svg>
+            </div>
+            <div id="res" style="visibility: hidden;">
+
+                <p class="header">
+                    BIEN HECHO
+                </p>
+                <div data-role="fieldcontain">
+                    <label for="cantidadFlexiones">Cantidad de flexiones:</label>
+                    <input type="range" name="cantidadFlexiones" id="cantidadFlexiones" value="1" min="0" max="50"
+                        data-track-theme="b" data-theme="a">
+                </div>
+                <a href="javascript:flexiones()" data-role="button" data-ajax="false" data-theme="b" id="enviarFlexion">
+                    Terminar
+                </a>
+                <audio id="audio" controls style="visibility: hidden;">
+                    <source type="audio/mp3" src="song/alarma.mp3">
+                </audio>
+            </div>
+        </div>
+
+        <div data-role="footer">
+            Version 1.0
+        </div>
+
+    </div>
+
+    <div data-role="page" id="sentadilla" data-theme="a">
+        <div data-role="header" class="header">
+            sentadillas
+        </div>
+        <div data-role="main" class="ui-content">
+            Tienes 30 segundos para realizar las sentadillas que puedas, no importa si descansas
+            el objetivo es saber la cantidad que haces y así clasificarte en nuestro sistema
+            para poder personalizar tus rutinas de mejor manera, ¿Estas listo para la prueba?,
+            vamos, al terminar el tiempo sonará una alarma, así que no te preocupes por eso...
+            <hr>
+            <div class="item" align="center">
+                <h2 onclick="comenzarS()">Comenzar</h2>
+                <svg width="160" height="160" id="relojS" onclick="comenzarS()">
+                    <g>
+                        <title>Layer 1</title>
+                        <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                            stroke="#6fdb6f" fill="none" />
+                    </g>
+                </svg>
+            </div>
+            <div id="resS" style="visibility: hidden;">
+                <p class="header">
+                    BIEN HECHO
+                </p>
+                <div data-role="fieldcontain">
+                    <label for="cantidadSentadillas">Cantidad de sentadillas:</label>
+                    <input type="range" name="cantidadSentadillas" id="cantidadSentadillas" value="1" min="0" max="50"
+                        data-track-theme="b" data-theme="a">
+                </div>
+                <a href="javascript:sentadillas()" data-role="button" data-ajax="false" data-theme="b" id="enviarSentadilla">
+                    Terminar
+                </a>
+                <audio id="audio" controls style="visibility: hidden;">
+                    <source type="audio/mp3" src="song/alarma.mp3">
+                </audio>
+            </div>
+        </div>
+
+        <div data-role="footer">
+
+        </div>
+
+    </div>
+
+    <div data-role="page" id="abdominales" data-theme="a">
+        <div data-role="header" class="header">
+            Abdominales
+        </div>
+        <div data-role="main" class="ui-content">
+            Tienes 30 segundos para realizar las abdominales que puedas, no importa si descansas
+            el objetivo es saber la cantidad que haces y así clasificarte en nuestro sistema
+            para poder personalizar tus rutinas de mejor manera, ¿Estas listo para la prueba?,
+            vamos, al terminar el tiempo sonará una alarma, así que no te preocupes por eso...
+            <hr>
+            <div class="item" align="center">
+                <h2 onclick="comenzarA()">Comenzar</h2>
+                <svg width="160" height="160" id="relojA" onclick="comenzarA()">
+                    <g>
+                        <title>Layer 1</title>
+                        <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                            stroke="#6fdb6f" fill="none" />
+                    </g>
+                </svg>
+            </div>
+            <div id="resA" style="visibility: hidden;">
+                <p class="header">
+                    BIEN HECHO
+                </p>
+                <div data-role="fieldcontain">
+                    <label for="cantidadAbdominales">Cantidad de Abdominales:</label>
+                    <input type="range" name="cantidadAbdominales" id="cantidadAbdominales" value="1" min="0" max="50"
+                        data-track-theme="b" data-theme="a">
+                </div>
+                <a href="javascript:abdominales()" data-role="button" data-ajax="false" data-theme="b" id="enviarAbdominal">
+                    Terminar
+                </a>
+                <audio id="audio" controls style="visibility: hidden;">
+                    <source type="audio/mp3" src="song/alarma.mp3">
+                </audio>
+            </div>
+        </div>
+
+        <div data-role="footer">
+
+        </div>
+
+    </div>
+
+    <div data-role="page" id="fondos" data-theme="a">
+        <div data-role="header" class="header">
+            Fondos
+        </div>
+        <div data-role="main" class="ui-content">
+            Tienes 30 segundos para realizar los fondos que puedas, no importa si descansas
+            el objetivo es saber la cantidad que haces y así clasificarte en nuestro sistema
+            para poder personalizar tus rutinas de mejor manera, ¿Estas listo para la prueba?,
+            vamos, al terminar el tiempo sonará una alarma, así que no te preocupes por eso...
+            <hr>
+            <div class="item" align="center">
+                <h2 onclick="comenzarFo()">Comenzar</h2>
+                <svg width="160" height="160" id="relojF" onclick="comenzarFo()">
+                    <g>
+                        <title>Layer 1</title>
+                        <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                            stroke="#6fdb6f" fill="none" />
+                    </g>
+                </svg>
+            </div>
+            <div id="resF" style="visibility: hidden;">
+                <p class="header">
+                    BIEN HECHO
+                </p>
+                <div data-role="fieldcontain">
+                    <label for="cantidadFondos">Cantidad de fondos:</label>
+                    <input type="range" name="cantidadFondos" id="cantidadFondos" value="1" min="0" max="50"
+                        data-track-theme="b" data-theme="a">
+                </div>
+                <a href="javascript:fondos()" data-role="button" data-ajax="false" data-theme="b" id="enviarFondo">
+                    Terminar
+                </a>
+                <audio id="audio" controls style="visibility: hidden;">
+                    <source type="audio/mp3" src="song/alarma.mp3">
+                </audio>
+
+            </div>
+        </div>
+
+        <div data-role="footer">
+
+        </div>
+
+    </div>
+
+    <script src="js/bienvenida.js"></script>
+    <script src="js/formulario.js"></script>
+    <script src="js/cronometro.js"></script>
+    <script src="js/guardarEjercicios.js"></script>
+</body>
+
+</html>

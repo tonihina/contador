@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<title>Inicio</title>
+	<link rel="stylesheet" type="text/css" href="css/carga.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+
+	<div id="contenedor_carga">
+		<img src="img/logo.png" id="logo">
+		<img src="img/flexion.gif" id="ejercicio">
+		<div id="carga">
+			
+		</div>
+	</div>
+	<nav class="navbar navbar-light bg-light" style="background-color: #da1010">
+    	<img src="img/logo.png" width="90" height="50" class="d-inline-block align-top" alt="" style="background-color: transparent;">
+	</nav>
+	<div id="pantalla">
+		<p>
+			Hola, para mejorar la experiencia en tus rutinas personalizadas, hemos creado un test de ubicación física, enseguida realizaras ejercicios básicos en un determinado tiempo, para darnos cuenta de tu nivel y así poder brindarte mejor servicio.
+		</p>
+		<h1 style="text-align: center; margin-top: 40px; font-size: 20px; color: white; background-color: transparent;">¿Selecciona tu sexo?</h1>
+		<table class="table" >
+			 <tr >
+		      <th ><a href="Explicacion1.html" ><img src="img/male.png" id="male"></a></th>
+		      <th><a href="Explicacion1.html"><img src="img/female.png" id="female"></a></th>
+		    </tr>
+		    <tr>
+		      <th>Hombre</th>
+		      <th>Mujer</th>
+		    </tr>  
+		</table>
+		
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			var contenedor = document.getElementById('contenedor_carga');
+
+			contenedor.style.visibility='hidden';
+			contenedor.style.opacity='0';
+
+		}
+	</script>
+	  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<title>abdominales</title>
+	<link rel="stylesheet" type="text/css" href="css/carga.css">
+	<link rel="stylesheet" type="text/css" href="css/inicio.css"><link rel="stylesheet" type="text/css" href="css/temporizador.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+	
+</head>
+<body>
+	<div id="contenedor_carga">
+		<img src="img/logo.png" id="logo">
+		<img src="img/flexion.gif" id="ejercicio">
+		<div id="carga">
+			
+		</div>
+	</div>
+	<div class="header">
+	  <img src="img/logo.png">
+	  
+	</div>
+	<div id="explicacion">
+		<h2 id="titulo">3. Abdominales</h2>
+		<p style="width: 80%; margin: auto; color: white;">Haz las abdominales que puedas en 30 segundos, no importa si descansas, lo importante es hacerlas a tu ritmo, A los 30 segundos sonará una alarma así que no te preocupes por el tiempo...</p>
+		<div class="chronometer">
+		<div id="screen">00 : 00</div>
+		<div class="buttons">
+			<button class="emerald" onclick="start()">&#9658;</button>
+			<button class="emerald" onclick="stop()"> &#8718;</button>
+			<button class="emerald" onclick="resume()" > &#8634;</button>
+			<button class="emerald" onclick="reset()"> &#8635;</button>
+		</div>
+		
+	</div>
+	
+	<div id="res">
+		<audio id="audio" controls style="visibility: hidden;">
+		<source type="audio/mp3" src="song/alarma.mp3">
+		</audio>
+
+		<p class="rango">BIEN HECHO</p>
+		<p class="rango">¿Cuántas abdominales hiciste?
+		<input type="range" id="rango" name="rangeInput" min="0" max="50" onchange="aumentoEjercicio(this.value);">
+		<input type="text" id="caja" value="" >
+		</p>
+		
+	</div>
+
+	</div>
+	<footer>
+		<a href="Explicacion4.html" id="next" style="visibility: hidden;"><span class="glyphicon glyphicon-arrow-right"></span></a>
+	</footer>
+	
+	<script type="text/javascript">
+		window.onload=function(){
+			var contenedor = document.getElementById('contenedor_carga');
+
+			contenedor.style.visibility='hidden';
+			contenedor.style.opacity='0';
+		}
+	</script>
+	  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	  <script src="js/temporizador.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<style>
+.item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    
+}
+
+.item h2 {
+    text-align:center;
+    position: absolute;
+    line-height: 125px;
+    width: 100%;
+    
+}
+
+svg {
+   -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    border-radius: 100%;
+    background-color: rgba(37, 182, 1, 0.6);
+}
+
+.circle_animation {
+  stroke-dasharray: 440; /* this value is the pixel circumference of the circle */
+  stroke-dashoffset: 440;
+  transition: all 1s linear;
+  
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<body>
+    <div class="item" align="center">
+        <h2>Play</h2>
+        <svg width="160" height="160" id="reloj" onclick="comenzar()">
+         <g>
+          <title>Layer 1</title>
+          <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+         </g>
+        </svg>
+    </div>
+
+</body>
+
+
+<script>
+
+
+function comenzar(){
+    var reloj= document.getElementById("reloj");
+    reloj.style.backgroundColor="transparent";
+    setTimeout(function() { 
+
+var time = 2; /* how long the timer will run (seconds) */
+var initialOffset = '440';
+var i = 1
+
+/* Need initial run as interval hasn't yet occured... */
+$('.circle_animation').css('stroke-dashoffset', initialOffset-(1*(initialOffset/time)));
+
+var interval = setInterval(function() {
+    $('h2').text(30-i);
+    if (i == time) {  	
+      clearInterval(interval);
+      reloj.style.backgroundColor="rgba(37, 182, 1, 0.6);";
+        $('h2').text("Terminado");
+      return;
+    }
+    $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
+    i++;  
+}, 1000);
+
+}, 0)
+
+
+}
+</script>

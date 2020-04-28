@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/bienvenida.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/slide-and-swipe-menu.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+
+
+<body>
+   
+  
+    <div id="test2">
+        <img src="img/swipe.png" width="350px" height="70px"
+            style="position: fixed; opacity: 0; z-index: 1; margin-left: 15%;">
+    </div>
+    <nav class="nav" id="menu">
+        <div>
+            <img src="img/paisaje.jpg" width="100%" style="z-index: -1; position: absolute;">
+            <img src="img/fondo.png" class="menuImagen">
+            <h3> </h3>
+        </div>
+
+
+        <ol id="lista2">
+            <li> <a href="actualizarDatos.html" class="submenu" data-ajax="false"> &#128100; Mis datos</a> </li>
+            <li> <a href="#" class="submenu"> &#128276; Mensajes </a> </li>
+            <li> <a href="#" class="submenu"> &#128101; Amigos </a> </li>
+            <li> <a href="#" class="submenu"> &#128190; Guardados </a> </li>
+            <li> <a href="#" class="submenu"> &#127911; Música </a> </li>
+            <li> <a href="#" class="submenu"> &#127942; Retos Semanales </a> </li>
+            <li> <a href="#" class="submenu"> &#127939; Comunidad </a> </li>
+            <li> <a href="#" class="submenu"> &#129361; Mi plan alimenticio </a> </li>
+            <li> <a href="#" class="submenu"> &#128202; Mi progreso </a> </li>
+            <li> <a href="#" class="submenu"> &#128295; Configuración </a> </li>
+
+        </ol>
+        Desliza para cerrar
+        <img src="img/swipe.png" width="30%">
+    </nav>
+
+    <div data-role="page" id="mprin" data-theme="b">
+
+        <div data-role="header">
+
+            <img src="img/menu.png" class="menuLogo" onclick="menu()">
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <p class="header2">
+                Ejercicios
+            </p>
+
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="img/muy principiante.png" width="100%">
+            <div>
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..." data-inset="true"
+            data-theme="c" id="muestaEjerciciosMP" >
+                
+            </ul>
+            </div>
+            
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"  data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="prin" data-theme="b">
+
+        <div data-role="header">
+
+            <img src="img/menu.png" class="menuLogo" onclick="menu()">
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <p class="header2">
+                Ejercicios
+            </p>
+
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="img/principiante.png" width="100%">
+            <div >
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..." data-inset="true"
+            data-theme="c" id="muestraEjerciciosP" >
+                
+            </ul>
+            </div>
+            
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"  data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+
+    <div data-role="page" id="inter" data-theme="b">
+
+        <div data-role="header">
+
+            <img src="img/menu.png" class="menuLogo" onclick="menu()">
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <p class="header2">
+                Ejercicios
+            </p>
+
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="img/intermedios.png" width="100%">
+            <div >
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..." data-inset="true"
+            data-theme="c" id="muestraEjerciciosInter" >
+                
+            </ul>
+            </div>
+            
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"  data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+
+    <div data-role="page" id="avan" data-theme="b">
+
+        <div data-role="header">
+
+            <img src="img/menu.png" class="menuLogo" onclick="menu()">
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <p class="header2">
+                Ejercicios
+            </p>
+
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="img/avanzados.png" width="100%">
+            <div >
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..." data-inset="true"
+            data-theme="c" id="muestraEjerciciosAvan" >
+                
+            </ul>
+            </div>
+            
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"  data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+  
+    <script src="http://labs.rampinteractive.co.uk/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <script src="js/principal.js"></script>
+    <script src="js/desliza.js"></script>
+    <script src="js/ejerciciosBuscar.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            
+    });     
+        window.onload = function () {
+            setTimeout('ocultar()', 100);
+            
+        }
+
+        function ocultar() {
+            var contenedor = document.getElementById('contenedor_carga');
+
+
+            contenedor.style.visibility = 'hidden';
+            contenedor.style.opacity = '0';
+            
+        }
+    </script>
+
+</body>
+
+
+<!-- touchSwipe library -->
+
+</html>

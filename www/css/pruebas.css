@@ -1,0 +1,33 @@
+#flexionAcabada{
+    visibility: hidden;
+}
+#sentadillaAcabada{
+    visibility: hidden;
+}
+#abdominalesAcabada{
+    visibility: hidden;
+}
+#fondosAcabada{
+    visibility: hidden;
+}
+
+.header{
+    text-align: center;
+}
+.terminada{
+    color: white;
+    background-color: rgba(37, 182, 1, 0.6);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    z-index: 1000;
+    font-size: 50px;
+}
+
+[data-role=footer]{
+    bottom:0; 
+    position: fixed !important; 
+    top: auto !important; 
+    width:100%;
+}
+

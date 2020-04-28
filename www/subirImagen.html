@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/bienvenida.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    
+
+<body>
+
+    
+    
+    <div data-role="page" id="inicio" data-theme="b">
+        <div data-role="header" class="header" data-theme="b">
+
+            <img src="img/logo.png" class="imagen">
+        </div>
+        <div data-role="main" class="ui-content" data-theme="b">
+            <center><b> Subir Ejercicio </b></center>
+            
+            <form action="https://mirutina21.000webhostapp.com/imagen.php" 
+            method="POST" enctype="multipart/form-data" id="envio">
+            <div data-role="fieldcontain">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" value="" required />
+            </div>
+            
+            <div class="selector-estado" data-role="fieldcontain">
+                <label for="estado"> Dificultad :</label>
+                <select id="estado" name="estado">
+                    <option value="0">Seleccionar</option>
+                </select>
+            </div>
+
+            <div class="selector-musculo" data-role="fieldcontain">
+                <label for="musculo"> Músculo que trabaja :</label>
+                <select id="musculo" name="musculo">
+                    <option value="0">Seleccionar</option>
+                </select>
+            </div>
+
+            <div class="selector-funcion" data-role="fieldcontain">
+                <label for="funcion"> Función del Ejercicio :</label>
+                <select id="funcion" name="funcion">
+                    <option value="0">Seleccionar</option>
+                </select>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="imagen">Imagen: </label>
+                <input type="file" id="imagen" name="imagen" required />
+                
+             </div>
+             <input type="submit" name="submit" value="Guardar"/>
+        </form>
+
+
+        </div>
+        <div data-role="footer">
+            Version 1.0
+        </div>
+    </div>
+
+    <script src="js/subirEjercicio.js"></script>
+</body>
+
+</html>

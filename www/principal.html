@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/bienvenida.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/crono.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/temporizador.css">
+    <link rel="stylesheet" href="css/nativedroid2.css">
+    <link rel="stylesheet" href="css/slide-and-swipe-menu.css">
+    <link rel="stylesheet" href="PhotoSwipe/dist/photoswipe.css"> 
+    <link rel="stylesheet" href="PhotoSwipe/dist/default-skin/default-skin.css"> 
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   
+    </head>
+
+<body>
+    <div id="contenedor_carga">
+        <img src="img/logo.png" id="logoInicio">
+        <div id="preloader_2">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <!-- Background of PhotoSwipe. 
+             It's a separate element, as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+    
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+    
+            <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+            <div class="pswp__container">
+                <!-- don't modify these 3 pswp__item elements, data is added later on -->
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+    
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+    
+                <div class="pswp__top-bar">
+    
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+    
+                    <div class="pswp__counter"></div>
+    
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+    
+                    
+                    <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader--active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                          <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div> 
+                </div>
+    
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+    
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+    
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+    
+              </div>
+    
+            </div>
+    
+    </div>
+
+    <div data-role="page" id="inicio" data-theme="b">
+
+        <div data-role="header" data-position="fixed">
+            <img src="img/logo.png" class="menuLogoVuamos" id="act">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <p class="header2">
+                Inicio
+            </p>
+           
+          
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="swiper-container" id="principalSwipe">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="img/peso-corporal.jpg" onclick="recargar('#rutina')" width="100%"></div>
+                  <div class="swiper-slide"><img src="img/contarCalorias.jpg"  onclick="recargar('#miPlanAlimenticio')" width="100%"></div>
+                  <div class="swiper-slide"><img src="img/infoNutrimental.jpg"  onclick="recargar('#videos')" width="100%"></div>
+                  <div class="swiper-slide"><img src="img/retos.jpg"  onclick="recargar('#')" width="100%"></div>
+                </div>
+                <!-- Add Pagination -->
+                <br><br>
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <br>
+            <ul data-role="listview" >
+                <li data-role="list-divider">
+                    <div class="swiper-container" id="frases">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">Vuamos!!</div>
+                          <div class="swiper-slide">Sin dolor!!</div>
+                        </div>
+                        <!-- Add Pagination -->
+                        
+                      </div>
+                </li>
+                <li >
+                    <form action="" method="POST"
+                    enctype="multipart/form-data" id="publicarAlgo" name="publicarAlgo">
+                    <input type="text" id="publicaUsuario" name="publicaUsuario" readonly style="visibility: hidden;" />
+                    <div id="fotoPublicar"></div><input type="text" placeholder="Escribe algo" id="publicacion" name="publicacion" data-theme="a">
+                    <div> <img src="img/foto.png" onclick="$('#publicacionImagen').click();" class="publicarImagen">
+                        <input id="publicacionImagen"  name="publicacionImagen" type="file" style="display:none;" />
+                        <img id="imgpublicar" width="50%" height="50%" src="" style="display: none;"/>
+                        <button id="botonPublicar" style="display: none;">Publicar</button></div>
+
+                   
+                </form>
+                   
+                </li>
+            </ul>
+            <ul data-role="listview" data-inset="true">
+
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h4> Subir historia</h4>
+                    <ul data-role="listview" data-theme="b">
+                        <li data-role="list-divider">
+                            <center style="color: white;"> Historias</center>
+                           
+                            <form action="" method="POST"
+                                enctype="multipart/form-data" id="historiaSubirAservidor" name="historiaSubirAservidor">
+                                <label for="imagenHistoria" style="color: white;">Subir historia: </label>
+                                <input type="text" id="historiaUsuario" name="historiaUsuario" readonly />
+                                <img src="img/foto.png" onclick="$('#imagenHistoria').click();" class="publicarImagen">
+                                <input type="file" id="imagenHistoria" name="imagenHistoria" style="display: none;" />
+                                <br />
+                                <img id="imgSalida" width="50%" height="50%" src="" style="display: none;" />
+                                <button id="botonPublicarHistoria" style="display: none;">Publicar</button>
+                            </form>
+
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul data-role="listview" >
+                <li data-role="list-divider" >
+                    <center> Historias</center>
+                    
+                </li>
+                <li>
+                    <div class="swiper-container" id="carruselHistoriaTodas">
+                        <div class="swiper-wrapper" id="historiasTodas">
+
+                        </div>
+
+
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination" id="noPaginacion"></div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div >
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca publicaciones" data-inset="true"
+                id="mostrarPublicaciones">
+                    
+                </ul>
+            </div>
+            
+            <button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true"
+            data-msgtext="Custom Loader" data-inline="true" 
+            data-html="<span class='ui-bar ui-shadow ui-overlay-d ui-corner-all'>
+                <img src='img/logo.png' width='100%'><h2>Cargando</h2></span>" data-iconpos="right" style="visibility: hidden;">Custom HTML</button>
+<button class="hide-page-loading-msg" data-inline="true" data-icon="delete" style="visibility: hidden;">Hide</button>
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="javascript:recargar('#inicio')" data-ajax="false" data-icon="home"
+                            class="ui-btn-active" id="estoyInicio"> Inicio </a></li>
+                    <li><a href="javascript:recargar('#rutina')" data-ajax="false" data-icon="star">Mi rutina</a></li>
+                    <li><a href="javascript:recargar('#ejercicios')" data-ajax="false" data-icon="grid">Ejercicios</a>
+                    </li>
+                    <li><a href="javascript:recargar('#articulos')" data-ajax="false" data-icon="bars"> Articulos</a>
+                    </li>
+                    <li><a href="javascript:recargar('#videos')" data-ajax="false" data-icon="video">Alimentos</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="rutina" data-theme="b">
+        <div data-role="header" data-position="fixed">
+
+         
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <p class="header2">
+                Mi rutina
+            </p>
+            
+
+        </div>
+        <div data-role="main" class="ui-content">
+
+            Mi rutina
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="javascript:recargar('#inicio')" data-ajax="false" data-icon="home"> Inicio </a></li>
+                    <li><a href="javascript:recargar('#rutina')" data-ajax="false" data-icon="star" id="estoyRutina">Mi
+                            rutina</a></li>
+                    <li><a href="javascript:recargar('#ejercicios')" data-ajax="false" data-icon="grid">Ejercicios</a>
+                    </li>
+                    <li><a href="javascript:recargar('#articulos')" data-ajax="false" data-icon="bars"> Articulos</a>
+                    </li>
+                    <li><a href="javascript:recargar('#videos')" data-ajax="false" data-icon="video">Alimentos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="ejercicios" data-theme="b">
+
+        <div data-role="header" data-position="fixed">
+
+           
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <p class="header2">
+                Ejercicios
+            </p>
+        </div>
+
+        <div data-role="main" class="ui-content" id="contenido">
+            <a href="javascript:recargar('#mprin')" data-ajax="false"> <img src="img/muy principiante.png"
+                    class="imagenEjercicios"></a> <br>
+
+            <a href="javascript:recargar('#prin')" data-ajax="false"> <img src="img/principiante.png"
+                    class="imagenEjercicios"> </a> <br>
+
+            <a href="javascript:recargar('#inter')" data-ajax="false"> <img src="img/intermedios.png"
+                    class="imagenEjercicios"> </a> <br>
+
+            <a href="javascript:recargar('#avan')" data-ajax="false"> <img src="img/avanzados.png"
+                    class="imagenEjercicios"> </a> <br>
+
+            <br><br>
+
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="javascript:recargar('#inicio')" data-ajax="false" data-icon="home"> Inicio </a></li>
+                    <li><a href="javascript:recargar('#rutina')" data-ajax="false" data-icon="star">Mi rutina</a></li>
+                    <li><a href="javascript:recargar('#ejercicios')" data-ajax="false" data-icon="grid"
+                            id="estoyEjercicios">Ejercicios</a>
+                    </li>
+                    <li><a href="javascript:recargar('#articulos')" data-ajax="false" data-icon="bars"> Articulos</a>
+                    </li>
+                    <li><a href="javascript:recargar('#videos')" data-ajax="false" data-icon="video">Alimentos</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="articulos" data-theme="b">
+        <div data-role="header" data-position="fixed">
+
+           
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <p class="header2">
+                Articulos
+            </p>
+
+
+        </div>
+        <div data-role="main" class="ui-content">
+            <a href="#insertarArticulo" data-rel="popup" data-position-to="window"
+                class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-plus ui-btn-icon-left ui-btn-b"
+                data-transition="pop">Agregar nuevo articulo</a>
+            <div data-role="popup" id="insertarArticulo" data-theme="a" class="ui-corner-all">
+                <form method="post" action=""
+                    enctype="multipart/form-data" id="articulosEnviar">
+                    <div style="padding:10px 20px;">
+                        <p style="text-align: center;">Agregar articulo</p>
+                        <label for="nombreArticulo" class="ui-hidden-accessible">Titulo:</label>
+                        <input type="text" name="nombreArticulo" id="nombreArticulo" value="" placeholder="Titulo"
+                            data-theme="a" required>
+                        <label for="descripcionArticulo" class="ui-hidden-accessible">Descripción:</label>
+                        <input type="text" name="descripcionArticulo" id="descripcionArticulo" value=""
+                            placeholder="Descripción" data-theme="a" required />
+                        
+                        <img src="img/archi.png" onclick="$('#archivoArticulo').click();" class="publicarImagen" >
+                        <input type="file" name="archivoArticulo" id="archivoArticulo" style="display:none;" required />
+                        
+                        <img src="img/foto.png" onclick="$('#imagen').click();" class="publicarImagen" >
+                        <input type="file" id="imagen" name="imagen" style="display:none;" required />
+                        <button type="submit"
+                            class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check"
+                            id="insertarArticulo">Hecho</button>
+                    </div>
+                </form>
+            </div>
+            <ul data-role="listview" data-split-icon="gear" data-split-theme="b" data-inset="true" id="mostrarArticulos"
+                data-filter="true" data-filter-placeholder="Busca Articulos...">
+
+            </ul>
+            <br>
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="javascript:recargar('#inicio')" data-ajax="false" data-icon="home"> Inicio </a></li>
+                    <li><a href="javascript:recargar('#rutina')" data-ajax="false" data-icon="star">Mi rutina</a></li>
+                    <li><a href="javascript:recargar('#ejercicios')" data-ajax="false" data-icon="grid">Ejercicios</a>
+                    </li>
+                    <li><a href="javascript:recargar('#articulos')" data-ajax="false" data-icon="bars"
+                            id="estoyArticulos"> Articulos</a>
+                    </li>
+                    <li><a href="javascript:recargar('#videos')" data-ajax="false" data-icon="video">Alimentos</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="videos" data-theme="b">
+        <div data-role="header" data-position="fixed">
+
+            
+            <img src="img/logo.png" class="menuLogoVuamos">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <p class="header2">
+                Información nutricional
+            </p>
+
+
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="img/alimentos.jpg" width="100%">
+            <div>
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca alimentos..."
+                    data-inset="true" data-theme="b" id="muestraAlimento">
+
+                </ul>
+            </div>
+            <div data-role="popup" id="detalleAlimento" data-overlay-theme="b" data-theme="b" class="centrar">
+                <a href="#" data-rel="back"
+                    class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <div id="alimentoDetalle">
+
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="javascript:recargar('#inicio')" data-ajax="false" data-icon="home"> Inicio </a></li>
+                    <li><a href="javascript:recargar('#rutina')" data-ajax="false" data-icon="star">Mi rutina</a></li>
+                    <li><a href="javascript:recargar('#ejercicios')" data-ajax="false" data-icon="grid">Ejercicios</a>
+                    </li>
+                    <li><a href="javascript:recargar('#articulos')" data-ajax="false" data-icon="bars"> Articulos</a>
+                    </li>
+                    <li><a href="javascript:recargar('#videos')" data-ajax="false" data-icon="video"
+                            id="estoyVideos">Alimentos</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="mprin" data-theme="b">
+
+        <div data-role="header" data-position="fixed" class="wow fadeIn" style="background-color: black; position: fixed;">	
+            
+            <img src="img/logo.png" class="menuLogoVuamos" onclick="recargar('#inicio')">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> Ejercicios  </h1>
+
+        <ul data-role="nd2tabs" >
+            <li data-tab="todosmp"  data-tab-active="true">Todos</li>
+            <li data-tab="fuerzamp">Fuerza</li>
+            <li data-tab="perderPesomp">Perder peso</li>
+            <li data-tab="resistenciamp">Resistencia</li>
+            <li data-tab="hipertrofiamp">Explosividad</li>
+            <li data-tab="flexibilidadmp">Flexibilidad</li>
+           
+        </ul>
+    </div>
+        <div data-role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s" >
+
+                <div data-role="nd2tab" data-tab="todosmp">
+                    <img src="img/muy principiante.png" width="100%" id="imgmp">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestaEjerciciosMP" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="nd2tab" data-tab="fuerzamp">
+                    <img src="img/fuerza.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosHombrosmp" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="nd2tab" data-tab="perderPesomp">
+                    <img src="img/peso.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosHiperdermp" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="nd2tab" data-tab="resistenciamp">
+                    <img src="img/res.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosResismp" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="nd2tab" data-tab="flexibilidadmp">
+                    <img src="img/flexi.png" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosFleximp" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="nd2tab" data-tab="hipertrofiamp">
+                    <img src="img/exp.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosExplomp" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+                </div>
+
+            <div data-role="popup" id="verEjercicio4" data-overlay-theme="b" data-theme="b" class="centrar">
+                <a href="#" data-rel="back"
+                    class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <div id="ejercicioDetalle">
+
+                </div>
+            </div>
+            <br><br>
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"
+                data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="prin" data-theme="b">
+
+        <div data-role="header" data-position="fixed" class="wow fadeIn" style="background-color: black; position: fixed;">	
+            
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> Ejercicios  </h1>
+
+        <ul data-role="nd2tabs" >
+            <li data-tab="todosp"  data-tab-active="true">Todos</li>
+            <li data-tab="fuerzap">Fuerza</li>
+            <li data-tab="perderPesop">Perder peso</li>
+            <li data-tab="resistenciap">Resistencia</li>
+            <li data-tab="hipertrofiap">Explosividad</li>
+            <li data-tab="flexibilidadp">Flexibilidad</li>
+           
+        </ul>
+    </div>
+        <div data-role="main" class="ui-content">
+            <div data-role="nd2tab" data-tab="todosp">
+                <img src="img/principiante.png" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosP" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+            </div>
+            <div data-role="nd2tab" data-tab="fuerzap">
+                <img src="img/fuerza.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosHombrosp" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="perderPesop">
+                <img src="img/peso.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosHiperderp" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="resistenciap">
+                <img src="img/res.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosResisp" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="flexibilidadp">
+                <img src="img/flexi.png" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosFlexip" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="hipertrofiap">
+                <img src="img/exp.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosExplop" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+            </div>
+            <div data-role="popup" id="verEjercicio1" data-overlay-theme="b" data-theme="b" class="centrar">
+                <a href="#" data-rel="back"
+                    class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <div id="ejercicioDetalleP">
+
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"
+                data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="inter" data-theme="b">
+
+        <div data-role="header" data-position="fixed" class="wow fadeIn" style="background-color: black; position: fixed;">	
+            
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> Ejercicios  </h1>
+
+        <ul data-role="nd2tabs" >
+            <li data-tab="todosp"  data-tab-active="true">Todos</li>
+            <li data-tab="fuerzap">Fuerza</li>
+            <li data-tab="perderPesop">Perder peso</li>
+            <li data-tab="resistenciap">Resistencia</li>
+            <li data-tab="hipertrofiap">Explosividad</li>
+            <li data-tab="flexibilidadp">Flexibilidad</li>
+           
+        </ul>
+    </div>
+        <div data-role="main" class="ui-content">
+            <div data-role="nd2tab" data-tab="todosp">
+                <img src="img/intermedios.png" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosInter" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="fuerzap">
+                <img src="img/fuerza.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosHombrosi" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+            </div>
+            <div data-role="nd2tab" data-tab="perderPesop">
+                <img src="img/peso.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosHiperderi" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="resistenciap">
+                <img src="img/res.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosResisi" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="flexibilidadp">
+                <img src="img/flexi.png" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosFlexii" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="hipertrofiap">
+                <img src="img/exp.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosExploi" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="popup" id="verEjercicio2" data-overlay-theme="b" data-theme="b" class="centrar">
+                <a href="#" data-rel="back"
+                    class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <div id="ejercicioDetalleI">
+
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"
+                data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="avan" data-theme="b">
+
+        <div data-role="header" data-position="fixed" class="wow fadeIn" style="background-color: black; position: fixed;">	
+            
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> Ejercicios  </h1>
+
+        <ul data-role="nd2tabs" >
+            <li data-tab="todosp"  data-tab-active="true">Todos</li>
+            <li data-tab="fuerzap">Fuerza</li>
+            <li data-tab="perderPesop">Perder peso</li>
+            <li data-tab="resistenciap">Resistencia</li>
+            <li data-tab="hipertrofiap">Explosividad</li>
+            <li data-tab="flexibilidadp">Flexibilidad</li>
+           
+        </ul>
+    </div>
+        <div data-role="main" class="ui-content">
+            <div data-role="nd2tab" data-tab="todosp">
+                <img src="img/avanzados.png" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosAvan">
+
+                        </ul>
+                    </div>
+            </div>
+            <div data-role="nd2tab" data-tab="fuerzap">
+                <img src="img/fuerza.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosHombrosa" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+            </div>
+            <div data-role="nd2tab" data-tab="perderPesop">
+                <img src="img/peso.jpg" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca ejercicios..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosHiperdera" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+            </div>
+            <div data-role="nd2tab" data-tab="resistenciap">
+                <img src="img/res.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosResia" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+            <div data-role="nd2tab" data-tab="flexibilidadp">
+                <img src="img/flexi.png" width="100%">
+                    <div>
+                        <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                            data-inset="true" data-theme="b" id="muestraEjerciciosFlexia" data-split-icon="eye">
+
+                        </ul>
+                    </div>
+            </div>
+            <div data-role="nd2tab" data-tab="hipertrofiap">
+                <img src="img/exp.jpg" width="100%">
+                <div>
+                    <ul data-role="listview" data-filter="true" data-filter-placeholder="Escribe algo..."
+                        data-inset="true" data-theme="b" id="muestraEjerciciosExploa" data-split-icon="eye">
+
+                    </ul>
+                </div>
+            </div>
+             
+            <div data-role="popup" id="verEjercicio3" data-overlay-theme="b" data-theme="b" class="centrar">
+                <a href="#" data-rel="back"
+                    class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <div id="ejercicioDetalleA">
+
+                </div>
+            </div>
+            <br><br>
+
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a href="javascript: regresar('principal.html#ejercicios')" data-role="button" data-icon="back"
+                data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="comunidad" data-theme="b">
+
+        <div data-role="header" data-position="fixed" class="wow fadeIn" style="background-color: black; position: fixed;">	
+            
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> Comunidad  </h1>
+
+        <ul data-role="nd2tabs" >
+            <li data-tab="usuarios"  data-tab-active="true">Usuarios</li>
+            <li data-tab="mensajes">Mensajes</li>
+           
+        </ul>
+    </div>
+        <div data-role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s" >
+     
+            <div data-role="nd2tab" data-tab="usuarios">
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca personas..."
+                    data-inset="true" data-theme="b" id="muestaUsuarios">
+
+                </ul>
+            </div>
+            <div data-role="nd2tab" data-tab="mensajes">
+                <div>
+                    <ul data-role="listview" data-theme="b" id="muestradeMensajesPanel">
+    
+                    </ul>
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <div data-role="footer" class="ui-tabs">
+            <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="datos" data-theme="b">
+        <div data-role="header" data-position="fixed">
+
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <p class="header2">
+                Mis datos
+            </p>
+
+        </div>
+        <div data-role="main" class="ui-content" data-theme="b">
+
+            <img src="img/user.png" width="100%">
+            <div data-role="fieldcontain">
+                <ul data-role="listview" data-inset="true">
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h4 id="fotoAntes"></h4>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                        <div data-role="fieldcontain">
+                            <form action="" method="POST"
+                            enctype="multipart/form-data" id="cambioFoto" name="cambioFoto">
+                            <input type="text" id="nombreUsuario" name="nombreUsuario" readonly />
+                            <div> <img src="img/foto.png" onclick="$('#perfilImagenCambio').click();" class="publicarImagen" style="width: 50%;">
+                                <input id="perfilImagenCambio"  name="perfilImagenCambio" type="file" style="display:none;" />
+                                <label for="imagen">Nueva foto: </label>
+                             
+                                <img id="imagenPerfilPrevia" width="50%" height="50%" src="" />
+                                <button id="botonPerfilFoto" style="display: none;">Actualizar</button></div>
+        
+                           
+                        </form>
+                        </div>
+                    </li>
+
+                    </ul>
+                </li>
+
+
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3 id="nombreAntes"></h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            <div data-role="fieldcontain">
+                                <label for="nombre">Nuevo nombre:</label>
+                                <input type="text" name="nombre" id="nombre" data-theme="a"
+                                    placeholder="Escribe algo" />
+                            </div>
+                        </li>
+                        <li data-theme="b">
+                            <button type="button" data-theme="b" id="actualizaNombre"
+                                data-ajax="false">Actualizar</button>
+                        </li>
+                    </ul>
+                </li>
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3 id="pesoAntes"></h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            <div data-role="fieldcontain">
+                                <label for="peso">Nuevo Peso:</label>
+                                <input type="range" name="peso" id="peso" value="40" min="0" max="160"
+                                    data-popup-enabled="true" data-theme="a">
+                            </div>
+                        </li>
+                        <li data-theme="b">
+                            <button type="button" data-theme="b" id="actualizaPeso"
+                                data-ajax="false">Actualizar</button>
+                        </li>
+                    </ul>
+                </li>
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3 id="edadAntes"></h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            <div data-role="fieldcontain">
+                                <label for="edad">Nueva Edad:</label>
+                                <input type="range" name="edad" id="edad" value="40" min="0" max="160"
+                                    data-popup-enabled="true" data-theme="a">
+                            </div>
+                        </li>
+                        <li data-theme="b">
+                            <button type="button" data-theme="b" id="actualizaEdad"
+                                data-ajax="false">Actualizar</button>
+                        </li>
+                    </ul>
+                </li>
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3 id="estaturaAntes"></h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            <div data-role="fieldcontain">
+                                <label for="estatura">Nueva estatura:</label>
+                                <input type="range" name="estatura" id="estatura" value="40" min="0" max="220"
+                                    data-popup-enabled="true" data-theme="a">
+                            </div>
+                        </li>
+                        <li data-theme="b">
+                            <button type="button" data-theme="b" id="actualizaEstatura"
+                                data-ajax="false">Actualizar</button>
+                        </li>
+                    </ul>
+                </li>
+                <li data-role="collapsible" data-inset="true" data-shadow="false">
+                    <h3 id="objetivoAntes"></h3>
+                    <ul data-role="listview" data-theme="b">
+                        <li>
+                            <div data-role="fieldcontain">
+                                <label for="objetivo" data-theme="a">Nuevo objetivo:</label>
+                                <div class="selector-objetivo" data-role="fieldcontain">
+                                    <select id="objetivo" name="objetivo">
+                                        <option value="Fuerza">Fuerza</option>
+                                        <option value="Hipertrofia">Hipertrofia</option>
+                                        <option value="BajarPeso">Bajar de peso</option>
+                                        <option value="Salud">Salud</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-theme="b">
+                            <button type="button" data-theme="b" id="actualizaObjetivo"
+                                data-ajax="false">Actualizar</button>
+                        </li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer">
+            <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+        </div>
+    </div>
+    <div data-role="page" id="error2">
+        <div data-role="header" data-theme="b">
+            <h1>Error</h1>
+        </div>
+        <div data-role="content" data-theme="a">
+            Parece que el nombre de usuario ya existe, por favor te pedimos pongas uno diferente...
+            <a href="#datos" data-role="button" data-theme="e" data-rel="back">Aceptar</a>
+        </div>
+        <div data-role="footer">
+            Version 1.0
+        </div>
+    </div>
+
+    <div data-role="page" id="mensajes" data-theme="b">
+
+        <div data-role="header">
+
+           
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <p class="header2">
+                Enviar mensaje
+            </p>
+
+        </div>
+        <div data-role="main" class="ui-content">
+            
+            <br>
+            <div>
+                <ul data-role="listview" data-split-icon="delete" data-theme="b" id="muestradeMensajes">
+
+                </ul>
+                <div data-role="popup" id="confirmaEliminarMensaje" data-theme="a" data-overlay-theme="b"
+                    class="ui-content" style="max-width:340px; padding-bottom:2em;">
+                    <h3>Quieres eliminar este mensaje?</h3>
+                    <h2>Confirmar Eliminación</h2>
+                    <p>No podrás recuperar este mensaje, estas seguro?</p>
+                    <a data-rel="back" id="confirmaElimns"
+                        class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Confirmar</a>
+                    <a href="#mensajes" data-rel="back"
+                        class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br>
+
+        </div>
+      
+        <div data-role="footer">
+            <input type="text" name="mensaje" id="mensaje" placeholder="Escribir mensaje" data-theme="a" />
+            <button type="button" data-theme="b" id="enviarMensaje" data-ajax="false" style="margin-left: 40%;">Enviar</button>
+            <br>
+                        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="mensajesPanel" data-theme="b">
+
+        <div data-role="header">
+
+            
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <p class="header2">
+                Mensajes
+            </p>
+
+        </div>
+        <div data-role="main" class="ui-content">
+
+            <div>
+                <ul data-role="listview" data-theme="b" id="muestradeMensajesPanel">
+
+                </ul>
+            </div>
+            <br><br> <br><br>
+        </div>
+        <div data-role="footer">
+            <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+        </div>
+    </div>
+
+    <div data-role="page" id="miPlanAlimenticio" data-theme="b">
+
+        <div data-role="header" data-position="fixed" class="wow fadeIn" style="background-color: green; position: fixed;">	
+            
+            <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+            <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> Alimentación  </h1>
+
+        <ul data-role="nd2tabs" >
+            <li data-tab="Gasto"  data-tab-active="true">Gasto</li>
+            <li data-tab="Comidas">Comidas</li>
+           
+        </ul>
+    </div>
+    <div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+        <div data-role="nd2tab" data-tab="Gasto">
+            <div>
+                <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                    <li data-role="list-divider">
+                        <center style="color: white;"> Gasto Calorico necesario</center>
+                    </li>
+                    <li>
+                        <div id="requerimientoCalorico">
+
+
+                        </div>
+
+                    <li><a href="#datalleValorCalculado" data-rel="popup" data-transition="pop"
+                            class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
+                            title="Ver más" data-theme="c">Ver más</a>
+                    </li>
+                    </li>
+                </ul>
+
+            </div>
+            <div>
+                <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                    <li data-role="list-divider">
+                        <center style="color: white;"> Cantidad de agua recomendada </center>
+                    </li>
+
+                    <li>
+                        <div id="requerimientoAgua" style="text-align: center;">
+
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                    <li data-role="list-divider">
+                        <center style="color: white;"> Distribución de macronutrientes </center>
+                    </li>
+
+                    <li> <canvas id="popChart" width="600" height="400"></canvas>
+                    </li>
+                    <li>
+                        <table class="macros" id="mostrarMacros">
+
+                        </table>
+                    </li>
+                </ul>
+            </div>
+            <br><br>
+        </div>
+        <div data-role="nd2tab" data-tab="Comidas">
+            <nd2-ad data-banner="sample.banner"></nd2-ad>
+            <input type="date" id="fecha" name="fecha" min="2018-01-01" max="2020-12-31"
+            onchange="actualizaFecha()">
+        <div>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">
+                    <center style="color: white;"> Contador de macronutrientes Totales</center>
+                    <div id="caloriasTotales" style="color: white;"></div>
+                </li>
+                <li>
+                    <table style="text-align: center; width: 90%;">
+                        <tr>
+
+                            <th class="carbo">Carbohidratos</th>
+                            <th class="prote">Proteinas</th>
+                            <th class="grasa">Grasas</th>
+
+                        </tr>
+                        <tr id="macrosDiarios">
+
+                        </tr>
+                        <tr id="gramosMacrosDiarios">
+
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                     <canvas id="graficaMacrosDiarios" width="100%" height="100px"></canvas>
+                </li>
+            </ul>
+
+        </div>
+        <div>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider" >
+                    <center style="color: white;"> Desayuno</center>
+                    <div id="contarCaloriasDesayuno" style="color: white;"> </div>
+                </li>
+                <li>
+                    <canvas id="graficaMacrosDesayuno" width="100%" height="100px"></canvas>
+               </li>
+                <li>
+                <ul data-role="listview" data-inset="true">
+
+                    <li data-role="collapsible" data-inset="true" data-shadow="false">
+                        <h4> Ver más detalles</h4>
+                        <ul data-role="listview" data-theme="b">
+                            <li>
+                                <table style="text-align: center; width: 100%; font-size: 11px; margin-right: 16px;">
+                                    <tr>
+
+                                        <th class="carbo">Carbohidratos</th>
+                                        <th class="prote">Proteinas</th>
+                                        <th class="grasa">Grasas</th>
+
+                                    </tr>
+                                    <tr id="macrosDesayuno">
+
+                                    </tr>
+
+                                </table>
+                            </li>
+                            <li data-role="list-divider">
+                                <center style="color: white;"> Alimentos del desayuno</center>
+                                
+                                <li id="detalleDesayuno">
+                    
+                                </li>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+                <li>
+                    <a href="#agregarAlimento" style="text-align: center;"
+                        onclick="tipoComida('desayuno')">Añadir alimento</a>
+                </li>
+            </ul>
+
+        </div>
+        <div>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">
+                    <center style="color: white;"> Comida</center>
+                    <div id="contarCaloriasComida" style="color: white;"> </div>
+                </li>
+                <li>
+                    <canvas id="graficaMacrosComida" width="100%" height="100px"></canvas>
+               </li>
+                <li>
+                    <ul data-role="listview" data-inset="true">
+                        
+                        <li data-role="collapsible" data-inset="true" data-shadow="false">
+                            <h4> Ver más detalles</h4>
+                            <ul data-role="listview" data-theme="b">
+                                <li>
+                                    <table style="text-align: center; width: 100%; font-size: 11px; margin-right: 16px;">
+                                        <tr>
+    
+                                            <th class="carbo">Carbohidratos</th>
+                                            <th class="prote">Proteinas</th>
+                                            <th class="grasa">Grasas</th>
+    
+                                        </tr>
+                                        <tr id="macrosComida">
+    
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li data-role="list-divider">
+                                    <center style="color: white;"> Alimentos de la comida</center>
+                                    
+                                    <li id="detalleComida">
+                        
+                                    </li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#agregarAlimento" style="text-align: center;"
+                        onclick="tipoComida('comida')">Añadir alimento</a>
+                </li>
+            </ul>
+
+        </div>
+        <div>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">
+                    <center style="color: white;"> Cena</center>
+                    <div id="contarCaloriasCena" style="color: white;"></div>
+                </li>
+                <li>
+                    <canvas id="graficaMacrosCena" width="100%" height="100px"></canvas>
+               </li>
+                <li>
+                    <ul data-role="listview" data-inset="true">
+
+                        <li data-role="collapsible" data-inset="true" data-shadow="false">
+                            <h4> Ver más detalles</h4>
+                            <ul data-role="listview" data-theme="b">
+                                <li>
+                                    <table style="text-align: center; width: 100%; font-size: 11px; margin-right: 16px;">
+                                        <tr>
+    
+                                            <th class="carbo">Carbohidratos</th>
+                                            <th class="prote">Proteinas</th>
+                                            <th class="grasa">Grasas</th>
+    
+                                        </tr>
+                                        <tr id="macrosCena">
+    
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li data-role="list-divider">
+                                    <center style="color: white;"> Alimentos de la cena</center>
+                                    
+                                    <li id="detalleCena">
+                        
+                                    </li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#agregarAlimento" style="text-align: center;"
+                        onclick="tipoComida('cena')">Añadir alimento</a>
+                </li>
+            </ul>
+
+        </div>
+        <div>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">
+                    <center style="color: white;"> Snack, golosinas, antojos...</center>
+                    <div id="contarCaloriasSnacks" style="color: white;"></div>
+                </li>
+                <li>
+                    <canvas id="graficaMacrosSnacks" width="100%" height="100px"></canvas>
+               </li>
+                <li>
+                    <ul data-role="listview" data-inset="true">
+
+                        <li data-role="collapsible" data-inset="true" data-shadow="false">
+                            <h4> Ver más detalles</h4>
+                            <ul data-role="listview" data-theme="b">
+                                <li>
+                                    <table style="text-align: center; width: 100%; font-size: 11px; margin-right: 16px;">
+                                        <tr>
+    
+                                            <th class="carbo">Carbohidratos</th>
+                                            <th class="prote">Proteinas</th>
+                                            <th class="grasa">Grasas</th>
+    
+                                        </tr>
+                                        <tr id="macrosSnacks">
+    
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li data-role="list-divider">
+                                    <center style="color: white;"> Alimentos de la cena</center>
+                                    
+                                    <li id="detalleSnacks">
+                        
+                                    </li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#agregarAlimento" style="text-align: center;"
+                        onclick="tipoComida('snacks')">Añadir alimento</a>
+                </li>
+            </ul>
+            <br>
+        </div>
+        </div>
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+    </div>
+   
+</div>
+
+<div data-role="page" id="retos" data-theme="b">
+
+    <div data-role="header">
+
+        <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+        <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+        <p class="header2">
+            Retos semanales
+        </p>
+
+    </div>
+    <div data-role="main" class="ui-content">
+        <div >
+            <ul data-role="listview" data-inset="true"
+            id="momstrarRetos">
+                
+            </ul>
+        </div>
+      
+    </div>
+    <div data-role="footer">
+       
+        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+    </div>
+</div>
+
+<div data-role="page" id="rutinasPredise" data-theme="b">
+
+    <div data-role="header">
+
+        <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+        <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+        <p class="header2">
+            Rutinas 
+        </p>
+
+    </div>
+    <div data-role="main" class="ui-content">
+        <div >
+            <ul data-role="listview" data-inset="true"
+            id="musculosRutinas">
+                
+            </ul>
+            <br>
+        </div>
+      
+    </div>
+    <div data-role="footer">
+       
+        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+    </div>
+</div>
+
+<div data-role="page" id="rutinaDe" data-theme="b">
+
+    <div data-role="header">
+
+        <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+        <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+        <p class="header2">
+            Circuitos
+        </p>
+
+    </div>
+    <div data-role="main" class="ui-content">
+        <div>
+            Esta Rutina de circuito constará de: <br>
+            <ul data-role="listview" data-inset="true"
+            id="rutinaAleatoria">
+                
+            </ul>
+           
+           
+            <br>
+            <br>
+        </div>
+      
+    </div>
+    <div data-role="footer">
+       
+        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+    </div>
+</div>
+
+
+<div data-role="page" id="HacerCircuito" data-theme="b">
+
+    <div data-role="header">
+
+        <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+        <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+        <p class="header2">
+            Circuito
+        </p>
+
+    </div>
+    <div data-role="main" class="ui-content">
+        <div id="RealizaEjercicioCircuito">
+           
+        </div>
+      
+        <h1 style="text-align: center; font-size: 23px;"></h1>
+        <div class="item" align="center">
+            <h2></h2>
+            <svg width="160" height="160" id="relojF" >
+                <g>
+                    <title>Layer 1</title>
+                    <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                        stroke="#6fdb6f" fill="none" />
+                </g>
+            </svg>
+            <audio id="audio" controls style="visibility: hidden;">
+                <source type="audio/mp3" src="song/alarma.mp3">
+            </audio>
+
+            <audio id="regresiva" controls style="visibility: hidden;">
+                <source type="audio/mp3" src="song/Regresiva.mp3">
+            </audio>
+            <audio id="sonidoFondo" controls style="visibility: hidden;">
+                <source type="audio/mp3" src="song/sonidoFondo.mp3">
+            </audio>
+            <audio id="recuperacion" controls style="visibility: hidden;">
+                <source type="audio/mp3" src="song/recuperacion.mp3">
+            </audio>
+        </div>
+      
+    </div>
+    <div data-role="footer">
+       
+        
+    </div>
+</div>
+
+<div data-role="page" id="detalleRetos" data-theme="b">
+
+    <div data-role="header" data-position="fixed" class="wow fadeIn" style="background-color: black; position: fixed;">	
+            
+        <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+        <img src="img/menu.png" width="10%" style="float: left;" onclick="abrirPanel()">
+        <h1 class="wow fadeIn" data-wow-delay='0.4s'> Retos  </h1>
+
+    <ul data-role="nd2tabs" >
+        <li data-tab="descrip"  data-tab-active="true">Descripción</li>
+        <li data-tab="start">Comenzar</li>
+        <li data-tab="mensajes">Mis tiempos</li>
+    </ul>
+</div>
+<div data-role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s" >
+     
+    <div data-role="nd2tab" data-tab="descrip">
+        <ul data-role="listview" 
+            data-inset="true" data-theme="b" id="detalleReto">
+
+        </ul>
+    </div>
+    <div data-role="nd2tab" data-tab="start">
+        <ul data-role="listview" data-inset="true"
+        >
+            <li data-role="list-divider" style="text-align: center;">Recuerda</li>
+            <li style="white-space:normal; font-size: small;">Recuerda el descanso es minimo, lo importante es hacerlo en el menor tiempo posible, ve a tu ritmo, Estas listo? 
+           <br> <img src="img/logo.png" width="100%"></li>
+            <li id="ejerciciosRetoComienza"> </li>
+        </ul>
+      
+
+            <div class="chronometer" >
+            <div id="screen">00 : 00 : 00 : 00</div>
+            <div class="buttons">
+                <button class="emerald" onclick="start()"> &#9658;</button>
+                <button class="emerald" onclick="stop()"> &#8718;</button>
+                <button class="emerald" onclick="resume()" > &#8634;</button>
+                <button class="emerald" onclick="reset()"> &#8635;</button>
+            </div>
+        </div>
+    
+    </div>
+    <br><br>
+</div>
+    <div data-role="footer">
+       
+        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+    </div>
+</div>
+    
+<div data-role="page" id="comentarios" data-theme="b">
+
+    <div data-role="header">
+
+        
+        <img src="img/logo.png" class="menuLogoVuamos"  onclick="recargar('#inicio')">
+        <p class="header2">
+            Comentarios
+        </p>
+
+    </div>
+    <div data-role="main" class="ui-content">
+           
+        <div >
+            <ul data-role="listview" data-inset="true"
+            id="mostrarComentarios">
+                
+            </ul>
+        </div>
+       
+        <br><br> <br><br>
+    </div>
+    <div data-role="footer">
+        <input type="text" name="comentario" id="comentario" placeholder="Escribir comentario" data-theme="a" />
+        <button type="button" data-theme="b" id="comentar" data-ajax="false" style="margin-left: 40%;">Comentar</button>
+        <br>
+        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+    </div>
+</div>
+
+    <div data-role="page" id="agregarAlimento" data-theme="b">
+        <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+        <ul data-role="listview" data-filter="true" data-filter-placeholder="Busca alimentos..." data-inset="true"
+            data-theme="b" id="AlimentosAgregar">
+        </ul>
+        <div data-role="popup" id="porciones" data-overlay-theme="b" data-theme="b" class="centrar">
+            <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+            <div id="detallePorcion">
+
+            </div>
+            <div data-role="fieldcontain">
+                <label for="porcion">Porciones:</label>
+                <input type="range" name="porcion" id="porcion" value="1" min="1" max="5" data-popup-enabled="true">
+            </div>
+            <button type="button" data-theme="b" id="guardarAlimento" data-ajax="false">Agregar</button>
+        </div>
+    </div>
+
+    <div data-role="page" id="detalleHistoriaVer" data-overlay-theme="b" data-theme="b" data-corners="false">
+
+        <div data-role="main" class="ui-content">
+
+            <a href="#" data-rel="back"
+                class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <div class="swiper-container" id="carruselHistorias" style="width: 100%;">
+                <div class="swiper-wrapper" id="mostrarDetalleHistoria" style="width: 100%;">
+
+                </div>
+
+
+                <!-- Add Pagination -->
+                <br><br>
+                <div class="swiper-pagination swiper-pagination-white" id="paginationCarrusel"></div>
+               
+            </div>
+        </div>
+        <div data-role="footer">
+            <a data-role="button" data-icon="back" data-rel="back" data-theme="b">Regresar</a>
+        </div>
+    </div>
+
+    <div data-role="panel" id="mypanel" data-display="push" data-swipe-close="true" data-swipe-open="false">
+        <nav>
+            <div id="fotoPerfil">
+
+
+            </div>
+
+
+            <ol id="lista2">
+                <h3></h3>
+                <li> <a href="javascript:recargar('#datos')" class="submenu"> &#128100; Mis datos</a> </li>
+                <li> <a href="javascript:recargar('#comunidad')" class="submenu"> &#128101; Comunidad  <div id="mns">
+                </div></a> </li>
+                <li> <a href="javascript:recargar('#rutinasPredise')" class="submenu">&#128681; Circuitos </a> </li>
+                <li> <a href="javascript:recargar('#retos')" class="submenu"> &#127942; Retos Semanales </a> </li>
+                <li> <a href="javascript:recargar('#miPlanAlimenticio')" class="submenu"> &#129361; Mi plan alimenticio
+                    </a> </li>
+                  <li> <a href="javascript:salir()" class="submenu"> &#129361; Salir
+                    </a> </li>
+               
+
+            </ol>
+
+
+            <br><br>
+        </nav>
+    </div><!-- /panel -->
+
+    <script>
+        $(function () {
+            $("#mypanel").panel();
+        });
+    </script>
+    <script src="http://labs.rampinteractive.co.uk/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <script src="js/principal.js"></script>
+    <script src="js/desliza.js"></script>
+    <script src="js/mostrarEjercicios.js"></script>
+    
+    <script src="js/crono.js"></script>
+    <script src="js/rutinasPRedi.js"></script>
+    <script src="js/ejerciciosBuscar.js"></script>
+    <script src="js/jquery.slideandswipe.js"></script>
+    <script src="js/mostrarComunidad.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/buscarPormusculo.js"></script>
+    <script src="js/notificacionesMensajes.js"></script>
+    <script src="js/comentarios.js"></script>
+    <script src="js/actualizaDatos.js"></script>
+    <script src="js/verEjercicios.js"></script>
+    <script src="js/verAlimento.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/agregarAlimento.js"></script>
+    <script src="js/articulos.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script src="js/retos.js"></script>
+<script src="js/nd2settings.js"></script>
+    <script src="PhotoSwipe/dist/photoswipe.min.js"></script> 
+    <script src="PhotoSwipe/dist/photoswipe-ui-default.min.js"></script> 
+
+    <script>
+        var nombre = localStorage.getItem("nombre");
+     
+        document.getElementById('historiaUsuario').value = nombre;
+        document.getElementById('publicaUsuario').value = nombre;
+        document.getElementById('nombreUsuario').value = nombre;
+
+        $(document).ready(function () {
+
+
+            document.getElementById('fecha').value = new Date().toDateInputValue();
+
+            document.cambioFoto.nombreUsuario.value = localStorage.getItem("nombre");
+
+
+        });
+        window.onload = function () {
+            setTimeout('ocultar()', 500);
+            localStorage.setItem("contador", 0);
+        }
+
+        function ocultar() {
+
+            var contenedor = document.getElementById('contenedor_carga');
+
+
+            contenedor.style.visibility = 'hidden';
+            contenedor.style.opacity = '0';
+            var swiper = new Swiper('#carruselHistoriaTodas', {
+                slidesPerView: 4,
+                spaceBetween: 0,
+                observer: true,
+                pagination: {
+                    el: '#noPaginacion',
+                    clickable: true,
+                },
+            });
+            var carrusel = new Swiper('#carruselHistorias', {
+                zoom: true,
+                observer: true,
+                pagination: {
+                    el: '#paginationCarrusel',
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+       
+    var swiper = new Swiper('#principalSwipe', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    var swiper = new Swiper('#frases', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      
+    });
+  
+        }
+
+        
+    </script>
+
+</body>
+
+
+<!-- touchSwipe library -->
+
+</html>
